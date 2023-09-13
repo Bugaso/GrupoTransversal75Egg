@@ -145,7 +145,7 @@ public class AlumnoData {
 			int exito = ps.executeUpdate();
 			
 			if(exito == 1) {
-				JOptionPane.showMessageDialog(null, "Alumno Modificado exitosamente");
+				JOptionPane.showMessageDialog(null, "Alumno modificado exitosamente");
 			}
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno");
@@ -163,7 +163,7 @@ public class AlumnoData {
 			int exito = ps.executeUpdate();
 			
 			if(exito == 1) {
-				JOptionPane.showMessageDialog(null, "Alumno Eliminado exitosamente");
+				JOptionPane.showMessageDialog(null, "Alumno eliminado exitosamente");
 			}
 			
 		}catch(SQLException e) {
