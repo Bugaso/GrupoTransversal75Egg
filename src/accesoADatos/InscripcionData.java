@@ -2,9 +2,7 @@ package accesoADatos;
 
 import java.sql.*;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-
 import entidades.*;
 
 public class InscripcionData {
