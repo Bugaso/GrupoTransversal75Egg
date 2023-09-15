@@ -7,10 +7,14 @@ import entidades.*;
 
 public class InscripcionData {
 	private Connection con;
+	private AlumnoData aluData;
+	private MateriaData matData;
 	
 	
 	public InscripcionData() {
 		this.con = Conexion.getConexion();
+		this.aluData = new AlumnoData();
+		this.matData = new MateriaData();
 	}
 	
 	public void guardarInscripcion(Inscripcion inscripcion) {
@@ -51,8 +55,10 @@ public class InscripcionData {
 			while(rs.next()) {
 				Inscripcion inscripcion = new Inscripcion();
 				inscripcion.setIdInscripcion(rs.getInt("idInscripcion"));
-				inscripcion.getAlumno().setIdAlumno(rs.getInt("idAlumno"));
-				inscripcion.getMateria().setIdMateria(rs.getInt("idMateria"));
+//				inscripcion.getAlumno().setIdAlumno(rs.getInt("idAlumno"));
+				inscripcion.setAlumno(aluData.buscarAlumno(rs.getInt("idAlumno")));
+//				inscripcion.getMateria().setIdMateria(rs.getInt("idMateria"));
+				inscripcion.setMateria(matData.buscarMateria(rs.getInt("idMateria")));
 				inscripcion.setNota(rs.getDouble("nota"));
 				inscripciones.add(inscripcion);
 			}
@@ -80,8 +86,10 @@ public class InscripcionData {
 			while(rs.next()) {
 				Inscripcion inscripcion = new Inscripcion();
 				inscripcion.setIdInscripcion(rs.getInt("idInscripcion"));
-				inscripcion.getAlumno().setIdAlumno(rs.getInt("idAlumno"));
-				inscripcion.getMateria().setIdMateria(rs.getInt("idMateria"));
+//				inscripcion.getAlumno().setIdAlumno(rs.getInt("idAlumno"));
+				inscripcion.setAlumno(aluData.buscarAlumno(rs.getInt("idAlumno")));
+//				inscripcion.getMateria().setIdMateria(rs.getInt("idMateria"));
+				inscripcion.setMateria(matData.buscarMateria(rs.getInt("idMateria")));
 				inscripcion.setNota(rs.getDouble("nota"));
 				inscripciones.add(inscripcion);
 			}
