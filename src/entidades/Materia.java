@@ -43,10 +43,12 @@ public class Materia {
 	public String toString() {
 		String cad = "";
 		
-		cad = cad + "ID de la Materia: " + this.idMateria + "\n";
-		cad = cad + "Nombre de la Materia: " + this.nombre + "\n";
-		cad = cad + "Año de la Materia: " + this.anio + "\n";
-		cad = cad + "Activo de la Materia: " + this.activo;
+//		cad = cad + "ID de la Materia: " + this.idMateria + "\n";
+//		cad = cad + "Nombre de la Materia: " + this.nombre + "\n";
+//		cad = cad + "Año de la Materia: " + this.anio + "\n";
+//		cad = cad + "Activo de la Materia: " + this.activo;
+		
+		cad = cad + this.nombre + ",   " + this.anio + " Año";
 		
 		return cad;
 	}

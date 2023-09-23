@@ -24,7 +24,9 @@ public class Inscripcion {
 		this.nota = nota;
 	}
 	
-	public Inscripcion(double nota) {this.nota = nota;}
+	public Inscripcion(double nota) {
+		this.nota = nota;
+	}
 
 	public int getIdInscripcion() {return idInscripcion;}
 
@@ -49,7 +51,7 @@ public class Inscripcion {
 		cad = cad + "Apellido del Alumno: " + this.alumno.getApellido() + "\n";
 		cad = cad + "Nombre del Alumno: " + this.alumno.getNombre() + "\n";
 		cad = cad + "DNI del Alumno: " + this.alumno.getApellido() + "\n";
-		cad = cad + "Nombre de la Materia: " + this.materia.getNombre();
+		cad = cad + "Nombre de la Materia: " + this.materia.getNombre();;
 		
 		return cad;
 	}

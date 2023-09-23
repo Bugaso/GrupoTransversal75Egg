@@ -42,9 +42,33 @@ public class InscripcionData {
 		}
 	}
 	
+	public double buscarNotaInscripcion(int idAlumno, int idMateria) {
+		double nota = -1;
+		String sql = "SELECT nota FROM inscripcion WHERE idAlumno = ? AND idMateria = ?";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, idAlumno);
+			ps.setInt(2, idMateria);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				nota = rs.getDouble("nota");
+			}else {
+				JOptionPane.showMessageDialog(null, "El alumno con el ID = " + idAlumno + " no tiene nota en la materia con el ID = " + idMateria);
+			}
+			
+		}catch(SQLException e) {
+			JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripción");
+		}
+		
+		return nota;
+	}
+	
 	public ArrayList<Inscripcion> obtenerInscripcione(){
 		ArrayList<Inscripcion> inscripciones = new ArrayList<Inscripcion>();
-		
 		String sql = "SELECT idInscripcion, idAlumno, idMateria, nota FROM inscripcion";
 		
 		try {
@@ -105,8 +129,13 @@ public class InscripcionData {
 	
 	public ArrayList<Materia> obtenerMateriasCursadas(int id){
 		ArrayList<Materia> materias = new ArrayList<Materia>();
-		String sql = "SELECT inscripcion.idMateria, nombre, añoMateria FROM inscripcion "
-				+ "JOIN materia (inscripcion.idMateria = materia.idMateria) WHERE idAlumno = ?";
+//		String sql = "SELECT inscripcion.idMateria, nombre, añoMateria "
+//				+ "FROM inscripcion JOIN materia ON (inscripcion.idMateria = materia.idMateria) "
+//				+ "WHERE idAlumno = ?";
+		
+		String sql = "SELECT inscripcion.idMateria, nombre, añoMateria "
+				+ "FROM inscripcion JOIN materia ON (inscripcion.idMateria = materia.idMateria) "
+				+ "WHERE idAlumno = ? AND materia.activo = 1" ;
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -125,7 +154,7 @@ public class InscripcionData {
 			}
 			
 			ps.close();
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripción y/o tabla Materia");
 		}
 		
@@ -134,8 +163,18 @@ public class InscripcionData {
 	
 	public ArrayList<Materia> obtenerMateriasNOCursadas(int id){
 		ArrayList<Materia> materias = new ArrayList<Materia>();
-		String sql = "SELECT DISTINTC inscripcion.idMateria, nombre, añoMateria FROM inscripcion "
-				+ "JOIN materia ON (inscripcion.idMateria = materia.idMateria) WHERE idAlumno != ?";
+//		String sql = "SELECT DISTINCT inscripcion.idMateria, nombre, añoMateria "
+//				+ "FROM inscripcion JOIN materia ON (inscripcion.idMateria = materia.idMateria) "
+//				+ "WHERE idAlumno != ? AND materia.activo = 1";
+		
+//		String sql = "SELECT DISTINCT inscripcion.idMateria, nombre, añoMateria "
+//				+ "FROM inscripcion JOIN materia ON (inscripcion.idMateria = materia.idMateria) "
+//				+ "WHERE materia.idMateria NOT IN (SELECT idMateria FROM inscripcion WHERE idAlumno = ?) "
+//				+ "AND materia.activo = 1";
+		
+		String sql = "SELECT materia.idMateria, nombre, añoMateria "
+				+ "FROM materia WHERE materia.idMateria NOT IN (SELECT inscripcion.idMateria FROM inscripcion WHERE idAlumno = ?)"
+				+ "AND materia.activo = 1";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -146,7 +185,7 @@ public class InscripcionData {
 			
 			while(rs.next()) {
 				Materia materia = new Materia();
-				materia.setIdMateria(rs.getInt("inscripcion.idMateria"));
+				materia.setIdMateria(rs.getInt("materia.idMateria"));
 				materia.setNombre(rs.getString("nombre"));
 				materia.setAnio(rs.getInt("añoMateria"));
 				materia.setActivo(true);
@@ -184,7 +223,7 @@ public class InscripcionData {
 	}
 	
 	public void actualizarNota(int idAlumno, int idMateria, double nota) {
-		String sql = "UPDATE incripcion SET nota = ? WHERE idAlumno = ? AND idMateria = ?";
+		String sql = "UPDATE inscripcion SET nota = ? WHERE idAlumno = ? AND idMateria = ?";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

@@ -1,7 +1,7 @@
 package entidades;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+//import java.time.format.DateTimeFormatter;
 
 public class Alumno {
 	private int idAlumno;
@@ -59,15 +59,25 @@ public class Alumno {
 
 	public String toString() {
 		String cad = "";
-		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
+//		DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy"); 
+//		
+//		cad = cad + "ID del Alumno: " + this.idAlumno + "\n";
+//		cad = cad + "DNI del Alumno: " + this.dni + "\n";
+//		cad = cad + "Apellido del Alumno: " + this.apellido + "\n";
+//		cad = cad + "Nombre del Alumno: " + this.nombre + "\n";
+//		cad = cad + "Fecha de Nacimiento del Alumno: " + this.fchNacimiento.format(formato) + "\n";
+//		cad = cad + "Activo del Alumno: " + this.activo;
 		
-		cad = cad + "ID del Alumno: " + this.idAlumno + "\n";
-		cad = cad + "Apellido del Alumno: " + this.apellido + "\n";
-		cad = cad + "Nombre del Alumno: " + this.nombre + "\n";
-		cad = cad + "DNI del Alumno: " + this.dni + "\n";
-		cad = cad + "Fecha de Nacimiento del Alumno: " + this.fchNacimiento.format(formato) + "\n";
-		cad = cad + "Activo del Alumno: " + this.activo;
+		cad = cad + this.dni + ", " + this.apellido + ", " + this.nombre;
 		
 		return cad;
 	}
+	
+//	public String toString2() {
+//		String cad = "";
+//		
+//		cad = cad + this.dni + ", " + this.apellido + ", " + this.nombre;
+//		
+//		return cad;
+//	}
 }
