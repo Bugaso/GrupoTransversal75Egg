@@ -1,17 +1,24 @@
-import java.sql.*;
-import java.time.LocalDate;
-import accesoADatos.*;
-import entidades.*;
-import java.util.ArrayList;
+//import java.sql.*;
+//import java.time.LocalDate;
+//import accesoADatos.*;
+//import entidades.*;
+//import java.util.ArrayList;
+import vistas.MenuPrincipal;
 
 public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Connection con = Conexion.getConexion();
-		Alumno a = new Alumno(10, "Rodriguez", "Angelo Uriel", 123123122, LocalDate.of(1980, 4, 25), true);
-		Alumno a2 = new Alumno(11, "Ocampo", "Alex", 333, LocalDate.of(2000, 7, 31), true);
-		Alumno a3 = new Alumno(12, "Muñoz", "Nicolas", 111, LocalDate.of(1998, 10, 10), true);
+		MenuPrincipal menuP = new MenuPrincipal();
+		
+		menuP.setVisible(true);
+		
+		
+		
+		
+//		Alumno a = new Alumno(10, "Rodriguez", "Angelo Uriel", 123123122, LocalDate.of(1980, 4, 25), true);
+//		Alumno a2 = new Alumno(11, "Ocampo", "Alex", 333, LocalDate.of(2000, 7, 31), true);
+//		Alumno a3 = new Alumno(12, "Muñoz", "Nicolas", 111, LocalDate.of(1998, 10, 10), true);
 //		AlumnoData ad = new AlumnoData();
 //		
 //		ad.guardarAlumno(a);
@@ -32,11 +39,11 @@ public class Test {
 //			}
 //		}
 		
-		Materia historia= new Materia(1, "Historia", 2, true);
-		Materia matematica= new Materia(2, "Matemática", 2, true);
-		Materia filosofia= new Materia(3, "Filosofía", 1, true);
-		Materia geografia= new Materia(4,"Geografía", 2, true);
-		Materia biologia= new Materia(5, "Biología", 1, true);
+//		Materia historia= new Materia(1, "Historia", 2, true);
+//		Materia matematica= new Materia(2, "Matemática", 2, true);
+//		Materia filosofia= new Materia(3, "Filosofía", 1, true);
+//		Materia geografia= new Materia(4,"Geografía", 2, true);
+//		Materia biologia= new Materia(5, "Biología", 1, true);
 //		MateriaData mate = new MateriaData();
 //		
 //		mate.guardarMateria(historia);
@@ -45,19 +52,20 @@ public class Test {
 //		mate.guardarMateria(geografia);
 //		mate.guardarMateria(biologia);
 		
-		Inscripcion i1 = new Inscripcion(a, biologia, 7);
-		Inscripcion i2 = new Inscripcion(a, historia, 6);
-		Inscripcion i3 = new Inscripcion(a2, filosofia, 10);
-		Inscripcion i4 = new Inscripcion(a2, historia, 9);
-		Inscripcion i5 = new Inscripcion(a3, matematica, 5);
-		Inscripcion i6 = new Inscripcion(a3, geografia, 9);
-		InscripcionData id = new InscripcionData();
-		
-		id.guardarInscripcion(i1);
-		id.guardarInscripcion(i2);
-		id.guardarInscripcion(i3);
-		id.guardarInscripcion(i4);
-		id.guardarInscripcion(i5);
-		id.guardarInscripcion(i6);
+//		Inscripcion i1 = new Inscripcion(a, biologia, 7);
+//		Inscripcion i2 = new Inscripcion(a, historia, 6);
+//		Inscripcion i3 = new Inscripcion(a2, filosofia, 10);
+//		Inscripcion i4 = new Inscripcion(a2, historia, 9);
+//		Inscripcion i5 = new Inscripcion(a3, matematica, 5);
+//		Inscripcion i6 = new Inscripcion(a3, geografia, 9);
+//		InscripcionData id = new InscripcionData();
+//		
+//		id.guardarInscripcion(i1);
+//		id.guardarInscripcion(i2);
+//		id.guardarInscripcion(i3);
+//		id.guardarInscripcion(i4);
+//		id.guardarInscripcion(i5);
+//		id.guardarInscripcion(i6);
+
 	}
 }
