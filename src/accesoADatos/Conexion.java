@@ -10,29 +10,28 @@ public class Conexion {
 	private static final String USUARIO = "root";
 	private static final String PASSWORD = "";
 	private static Connection connection;
-	
-	
+
 	private Conexion() {
-		
+
 	}
-	
+
 	public static Connection getConexion() {
-		
-		if(connection == null) {
+
+		if (connection == null) {
 			try {
 				Class.forName("org.mariadb.jdbc.Driver");
-				
-				connection = DriverManager.getConnection(URL+DB, USUARIO, PASSWORD);
-				
-				JOptionPane.showMessageDialog(null, "Conexión Exitosa!!!");
-				
+
+				connection = DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
+
+//				JOptionPane.showMessageDialog(null, "Conexión Exitosa!!!");
+
 			} catch (ClassNotFoundException e) {
 				JOptionPane.showMessageDialog(null, "Error al cargar los drivers");
-			}catch (SQLException e) {
+			} catch (SQLException e) {
 				JOptionPane.showMessageDialog(null, "Error al conectarse a la Base de Datos");
 			}
 		}
-		
+
 		return connection;
 	}
 }

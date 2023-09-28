@@ -1,3 +1,4 @@
+
 //import java.sql.*;
 //import java.time.LocalDate;
 //import accesoADatos.*;
@@ -10,12 +11,9 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MenuPrincipal menuP = new MenuPrincipal();
-		
+
 		menuP.setVisible(true);
-		
-		
-		
-		
+
 //		Alumno a = new Alumno(10, "Rodriguez", "Angelo Uriel", 123123122, LocalDate.of(1980, 4, 25), true);
 //		Alumno a2 = new Alumno(11, "Ocampo", "Alex", 333, LocalDate.of(2000, 7, 31), true);
 //		Alumno a3 = new Alumno(12, "Muñoz", "Nicolas", 111, LocalDate.of(1998, 10, 10), true);
@@ -26,19 +24,19 @@ public class Test {
 //		ad.guardarAlumno(a3);
 //		ad.modificarAlumno(a);
 //		ad.eliminarAlumno(1);
-		
+
 //		Alumno aEncont = ad.buscarAlumnoPorDni(111);
 //		if (aEncont != null) {
 //			System.out.println(aEncont);
 //		}
-		
+
 //		ArrayList<Alumno> alumnosEnct = ad.listarAlumnos();
 //		if(alumnosEnct.size() != 0) {
 //			for(int i=0; i<alumnosEnct.size(); i++) {
 //				System.out.println(alumnosEnct.get(i));
 //			}
 //		}
-		
+
 //		Materia historia= new Materia(1, "Historia", 2, true);
 //		Materia matematica= new Materia(2, "Matemática", 2, true);
 //		Materia filosofia= new Materia(3, "Filosofía", 1, true);
@@ -51,7 +49,7 @@ public class Test {
 //		mate.guardarMateria(filosofia);
 //		mate.guardarMateria(geografia);
 //		mate.guardarMateria(biologia);
-		
+
 //		Inscripcion i1 = new Inscripcion(a, biologia, 7);
 //		Inscripcion i2 = new Inscripcion(a, historia, 6);
 //		Inscripcion i3 = new Inscripcion(a2, filosofia, 10);
