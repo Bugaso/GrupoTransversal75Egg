@@ -93,10 +93,14 @@ public class FormularioInscripcion extends JInternalFrame {
 		getContentPane().add(scrollPane);
 
 		jtMaterias = new JTable();
-		jtMaterias.setRowSelectionAllowed(false);
-//		scrollPane.setColumnHeaderView(jtMaterias);
+		jtMaterias.setRowSelectionAllowed(true);
+		jtMaterias.setColumnSelectionAllowed(false);
+		jtMaterias.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jtMaterias.getTableHeader().setReorderingAllowed(false);
 		scrollPane.setViewportView(jtMaterias);
 		armarCabeceraTabla();
+//		scrollPane.setColumnHeaderView(jtMaterias);
+		
 
 		jrbMatInscriptas = new JRadioButton("Materias Inscriptas");
 		jrbMatInscriptas.addActionListener(new ActionListener() {
@@ -251,10 +255,14 @@ public class FormularioInscripcion extends JInternalFrame {
 			Alumno alumno = (Alumno) jcbAlumno.getSelectedItem();
 			Materia materia = matData.buscarMateriaPorNombre((String) jtMaterias.getValueAt(filaSelec, 1));
 			Inscripcion inscripcion = new Inscripcion(alumno, materia, 0);
+			
 			insData.guardarInscripcion(inscripcion);
+			do_jrbMatNoInscriptas_actionPerformed(e);
 		} else {
 			JOptionPane.showMessageDialog(this, "Seleccione una materia para inscribirse");
 		}
+		
+		
 	}
 
 	protected void do_jbAnularInscripcion_actionPerformed(ActionEvent e) {
@@ -265,6 +273,7 @@ public class FormularioInscripcion extends JInternalFrame {
 			Materia materia = matData.buscarMateriaPorNombre((String) jtMaterias.getValueAt(filaSelec, 1));
 
 			insData.borrarInscripcionMateriaAlumno(alumno.getIdAlumno(), materia.getIdMateria());
+			do_jrbMatInscriptas_actionPerformed(e);
 		} else {
 			JOptionPane.showMessageDialog(this, "Seleccione una materia para desinscribirse");
 		}

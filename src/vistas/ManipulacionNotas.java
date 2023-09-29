@@ -95,6 +95,10 @@ public class ManipulacionNotas extends JInternalFrame {
 //			}
 //		});
 //		scrollPane.setColumnHeaderView(jtMaterias);
+		jtMaterias.setRowSelectionAllowed(true);
+		jtMaterias.setColumnSelectionAllowed(false);
+		jtMaterias.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jtMaterias.getTableHeader().setReorderingAllowed(false);
 		scrollPane.setViewportView(jtMaterias);
 		armarCabeceraTabla();
 
