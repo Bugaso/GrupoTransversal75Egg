@@ -261,8 +261,6 @@ public class FormularioInscripcion extends JInternalFrame {
 		} else {
 			JOptionPane.showMessageDialog(this, "Seleccione una materia para inscribirse");
 		}
-		
-		
 	}
 
 	protected void do_jbAnularInscripcion_actionPerformed(ActionEvent e) {
