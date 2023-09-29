@@ -1,5 +1,5 @@
-package accesoADatos;
 
+package accesoADatos;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -9,7 +9,6 @@ public class InscripcionData {
 	private Connection con;
 	private AlumnoData aluData;
 	private MateriaData matData;
-
 	public InscripcionData() {
 		this.con = Conexion.getConexion();
 		this.aluData = new AlumnoData();
