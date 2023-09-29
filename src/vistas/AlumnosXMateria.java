@@ -81,10 +81,13 @@ public class AlumnosXMateria extends JInternalFrame {
 		getContentPane().add(scrollPane);
 
 		jtAlumnos = new JTable();
-//		scrollPane.setColumnHeaderView(jtAlumnos);
+		jtAlumnos.setRowSelectionAllowed(true);
+		jtAlumnos.setColumnSelectionAllowed(false);
+		jtAlumnos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		jtAlumnos.getTableHeader().setReorderingAllowed(false);
 		scrollPane.setViewportView(jtAlumnos);
 		armarCabeceraTabla();
-
+//		scrollPane.setColumnHeaderView(jtAlumnos);
 	}
 
 	private void cargarComboBox() {
